@@ -8,7 +8,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . Tweetshot"
+    "package": "asar pack Tweetshot.app/Contents/Resources/app Tweetshot.app/Contents/Resources/app.asar",
+    "build": "electron-packager . Tweetshot && cp icon.icns Tweetshot.app/Contents/Resources/icon.icns"
   },
   "keywords": [
     "twitter",
@@ -17,10 +18,11 @@
     "electronjs"
   ],
   "devDependencies": {
-    "electron": "^9.0.0"
+    "asar": "^3.0.3",
+    "electron": "^9.0.0",
+    "electron-packager": "^14.2.1"
   },
   "dependencies": {
-    "electron-packager": "^14.2.1",
     "playwright": "^1.0.2"
   }
 }
