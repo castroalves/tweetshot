@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tweetshot</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container p-6 text-base text-white font-sans">
+    <h1 class="w-full text-4xl text-center mb-6">
+        Tweet<span class="font-semibold">shot</span>
+    </h1>
+    <div class="w-full mb-6">
+        <label for="url" class="block uppercase tracking-wide text-xs font-bold mb-2">
+            Tweet URL
+        </label>
+        <input id="url" type="url" name="url" placeholder="https://twitter.com/status/user/"
+               class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-gray-100 focus:border-blue-600 hover:bg-gray-100 hover:border-blue-600" />
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-1/2 px-3 mb-6">
+            <label for="theme" class="block uppercase tracking-wide text-xs font-bold mb-2">Theme</label>
+            <select name="theme" id="theme"
+                    class="block appearance-none w-full border border-blue-600 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500 hover:bg-gray-100 hover:border-blue-600">
+                <option value="light" selected="">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <div class="w-1/2 px-3 mb-6">
+            <label for="theme" class="block uppercase tracking-wide text-xs font-bold mb-2">Language</label>
+            <select name="lang" id="lang"
+                    class="block appearance-none w-full border border-blue-600 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500 hover:bg-gray-100 hover:border-blue-600">
+                <option value="de">Deutsche</option>
+                <option value="en" selected="selected">English</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
+    </div>
+    <div class="inline-flex mb-6">
+        <button id="go" title="Take Screenshot"
+                class="inline-flex items-center shadow bg-white text-gray-900 hover:bg-gray-300 focus:shadow-outline focus:outline-none py-2 px-4 rounded-l">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512" class="h-6 w-6 fill-current mr-2">
+                <path d="M512 144v288c0 27-21 48-48 48H48c-26 0-48-21-48-48V144c0-26 22-48 48-48h88l12-33c7-19 25-31 45-31h126c20 0 38 12 45 31l12 33h88c27 0 48 22 48 48zM376 288a120 120 0 10-240 0 120 120 0 00240 0zm-32 0a88 88 0 11-176 0 88 88 0 01176 0z"/>
+            </svg>
+            <span>Take Screenshot</span>
+        </button>
+        <button id="open-file" title="View Screenshot"
+                class="inline-flex items-center cursor-not-allowed opacity-75 shadow bg-white text-gray-900 hover:bg-gray-300 focus:shadow-outline focus:outline-none py-2 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-6 w-6 fill-current mr-2">
+                <path d="M464 64H48C21 64 0 85 0 112v288c0 27 21 48 48 48h416c27 0 48-21 48-48V112c0-27-21-48-48-48zm-6 336H54a6 6 0 01-6-6V118a6 6 0 016-6h404a6 6 0 016 6v276a6 6 0 01-6 6zM128 152a40 40 0 100 80 40 40 0 000-80zM96 352h320v-80l-88-88c-4-4-12-4-16 0L192 304l-40-40c-4-4-12-4-16 0l-40 40v48z"/>
+            </svg>
+            <span>View Screenshot</span>
+        </button>
+        <button id="open-folder" title="Open Folder"
+                class="inline-flex items-center cursor-not-allowed opacity-75 shadow bg-white text-gray-900 hover:bg-gray-300 focus:shadow-outline focus:outline-none py-2 px-4 rounded-r">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                 class="h-6 w-6 fill-current mr-2">
+                <path d="M464 128H272l-64-64H48C21 64 0 85 0 112v288c0 27 21 48 48 48h416c27 0 48-21 48-48V176c0-27-21-48-48-48z"/>
+            </svg>
+            <span>Open Folder</span>
+        </button>
+    </div>
+    <div class="w-full text-center mb-6">
+        Created by
+        <a href="https://twitter.com/castroalves" target="_blank" class="hover:underline font-bold">
+            @castroalves
+        </a>
+        | Version 0.1.0
+    </div>
+</div>
+<script>
+    require('./index.js');
+</script>
+</body>
+</html>
