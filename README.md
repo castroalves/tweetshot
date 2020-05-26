@@ -1,4 +1,4 @@
-
+![Tweetshot](https://github.com/castroalves/tweetshot/blob/master/screenshot-v0.1.0.png?raw=true)
 
 # Installation
 
