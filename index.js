@@ -1,7 +1,9 @@
-const { shell, ipcRenderer } = require('electron');
+const { remote, shell, ipcRenderer } = require('electron');
+const app = remote.app;
 const { chromium } = require('playwright');
 const path = require('path');
 
+let savePath = app.getPath('downloads');
 
 const takeScreenshot = async (tweetUrl, theme, lang) => {
 
@@ -23,7 +25,7 @@ const takeScreenshot = async (tweetUrl, theme, lang) => {
     }
 
     // Params
-    const date = (new Date()).toISOString();
+    const date = (new Date()).getTime();
 
     const tweetURLParts = tweetUrl.split('/');
     const tweetID = tweetURLParts[tweetURLParts.length - 1];
@@ -44,9 +46,10 @@ const takeScreenshot = async (tweetUrl, theme, lang) => {
 
     const tweet = await page.$('.twitter-tweet');
     if (tweet) {
-        const filename = `tweetshot-${tweetID}-${theme}-${lang}.png`;
+        const filename = `tweetshot-${date}-${theme}-${lang}.png`;
         await tweet.screenshot({
-            path: path.join(__dirname, 'shots', filename)
+            // path: path.join(__dirname, 'shots', filename)
+            path: path.join(savePath, filename)
         });
         
         console.log('Screenshot created!');
@@ -97,6 +100,8 @@ disableButtons();
 
 goBtn.addEventListener('click', async (event) => {
 
+    console.log('savePath => ', savePath);
+
     const originalLabel = goBtn.innerText;
 
     // Disable Create Button while screenshot is pending
@@ -117,7 +122,7 @@ goBtn.addEventListener('click', async (event) => {
         new Notification('Success!', {
             body: screenshot.message
         });
-        filePath = path.join(__dirname, 'shots', screenshot.filename);
+        filePath = path.join(savePath, screenshot.filename);
 
         // Enable buttons to see the screenshot
         enableButtons();

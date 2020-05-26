@@ -8,8 +8,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . Tweetshot --out=dist/ --icon=Tweetshot.icns --ignore=Tweetshot.* --overwrite && cp Tweetshot.icns Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/Tweetshot.icns",
-    "package": "asar pack Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/app Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/app.asar"
+    "build": "electron-packager . Tweetshot --out=releases/ --icon=Tweetshot.icns --ignore=Tweetshot.* --overwrite && cp Tweetshot.icns releases/Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/electron.icns",
+    "package": "asar pack releases/Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/app releases/Tweetshot-darwin-x64/Tweetshot.app/Contents/Resources/app.asar"
   },
   "keywords": [
     "twitter",

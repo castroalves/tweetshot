@@ -15,7 +15,8 @@ function createWindow() {
         frame: true,
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools: false
         }
     };
 
